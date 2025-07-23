@@ -1,7 +1,5 @@
 FROM php:8.2-cli
 
-WORKDIR /app
-
 # extensiones necesarias
 RUN apt-get update && apt-get install -y \
     git unzip libicu-dev libzip-dev zip libonig-dev curl libpng-dev libxml2-dev \
@@ -10,18 +8,17 @@ RUN apt-get update && apt-get install -y \
 # Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# usuario sin privilegios
 RUN useradd -m appuser
+
+RUN mkdir /app && chown appuser:appuser /app
+
+WORKDIR /app
+
 USER appuser
 
-# copiar archivos del proyecto al directorio /app
 COPY --chown=appuser:appuser . .
 
-# instalar dependencias como usuario appuser
 RUN composer install
-
-# volver a root
-USER root
 
 EXPOSE 8000
 
