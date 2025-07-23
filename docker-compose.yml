@@ -12,11 +12,12 @@ services:
             - mysql
         environment:
             APP_ENV: dev
-            DATABASE_URL: mysql://user:wewelcom@mysql:3306/wewelcom_db
+            DATABASE_URL: mysql://user:wewelcom@mysql_db:3306/wewelcom_db
             API_KEY: WeWelcom_Mauri
 
     mysql:
         image: mysql:8.0
+        container_name: mysql_db
         environment:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: wewelcom_db
