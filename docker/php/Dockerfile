@@ -10,13 +10,19 @@ RUN apt-get update && apt-get install -y \
 # Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# archivos del proyecto
-COPY . .
+# usuario sin privilegios
+RUN useradd -m appuser
+USER appuser
 
-# dependencias Symfony
+# copiar archivos del proyecto al directorio /app
+COPY --chown=appuser:appuser . .
+
+# instalar dependencias como usuario appuser
 RUN composer install
+
+# volver a root
+USER root
 
 EXPOSE 8000
 
 CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
-
