@@ -1,0 +1,32 @@
+services:
+    symfony:
+        build:
+            context: .
+            dockerfile: docker/php/Dockerfile
+        container_name: symfony_app
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./:/app
+        depends_on:
+            - mysql
+        environment:
+            APP_ENV: dev
+            DATABASE_URL: mysql://user:wewelcom@mysql:3306/wewelcom_db
+
+    mysql:
+        image: mysql:8.0
+        container_name: mysql_db
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: wewelcom_db
+            MYSQL_USER: user
+            MYSQL_PASSWORD: wewelcom
+        ports:
+            - "3306:3306"
+        volumes:
+            - db_data:/var/lib/mysql
+            - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+volumes:
+    db_data:

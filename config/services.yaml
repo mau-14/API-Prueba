@@ -1,0 +1,19 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            $apiKey: "%env(API_KEY)%"
+
+    App\EventListener\ApiKeyListener:
+        tags:
+            - {
+                  name: kernel.event_listener,
+                  event: kernel.request,
+                  method: onKernelRequest,
+              }
+
+    App\:
+        resource: "../src/"
