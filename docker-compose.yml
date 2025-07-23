@@ -13,6 +13,7 @@ services:
         environment:
             APP_ENV: dev
             DATABASE_URL: mysql://user:wewelcom@mysql:3306/wewelcom_db
+            API_KEY: WeWelcom_Mauri
 
     mysql:
         image: mysql:8.0
