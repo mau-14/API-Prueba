@@ -21,14 +21,21 @@ Este proyecto es una API RESTful desarrollada con Symfony y API Platform para un
 
     ```
 
-2. Instalar dependencias (local):
+2. Accede al directorio del proyecto:
+
+    ```bash
+    cd API-Prueba
+
+    ```
+
+3. Instalar dependencias (local):
 
     ```bash
     composer install
 
     ```
 
-3. Levantar el contenedor:
+4. Levantar el contenedor:
     ```bash
     docker-compose up --build
     ```
