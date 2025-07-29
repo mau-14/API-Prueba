@@ -1,6 +1,6 @@
 # Symfony + API Platform con Docker
 
-Este proyecto es una API RESTful desarrollada con Symfony y API Platform para una prueba técnica, que se ejecuta dentro de contenedores Docker junto con una base de datos MySQL.
+Este proyecto es una API RESTful desarrollada con Symfony y API Platform como parte de una prueba técnica. La aplicación se ejecuta en contenedores Docker e incluye una base de datos MySQL, utilizando Doctrine como ORM.
 
 ---
 
