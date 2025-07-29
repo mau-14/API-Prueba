@@ -18,21 +18,18 @@ Este proyecto es una API RESTful desarrollada con Symfony y API Platform como pa
 
     ```bash
     git clone https://github.com/mau-14/API-Prueba
-
     ```
 
 2. Accede al directorio del proyecto:
 
     ```bash
     cd API-Prueba
-
     ```
 
 3. Instalar dependencias (local):
 
     ```bash
     composer install
-
     ```
 
 4. Levantar el contenedor:
