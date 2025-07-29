@@ -46,6 +46,7 @@ Este proyecto es una API RESTful desarrollada con Symfony y API Platform para un
 
 - Toda la documentación de la API se encuentra en http://localhost:8000/api .
 - Se requiere una API KEY en el body de la solicitud:
+
     - Nombre:
         ```bash
           X-API-KEY
